@@ -1,0 +1,47 @@
+.movie_details{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+.movie_details h1{
+    color: #FFF;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px; /* 116.667% */
+}
+.imdb_rating{
+    display: flex;
+    width: 35px;
+    height: 17px;
+    align-items: center;
+    gap: 15px;
+}
+.imdb_rating img{
+    width: inherit;
+    height: inherit;
+}
+.imdb_rating p{
+    color: #FFF;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+.movie_details p{
+    color: #FFF;
+font-size: 18px;
+font-weight: 400;
+line-height: 22px;
+}
+.movie_details button{
+    background: #BE123C;
+    color: #FFF;
+    border-radius: 6px;
+    padding: 8px 16px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+
+}

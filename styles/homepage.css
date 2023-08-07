@@ -1,3 +1,151 @@
 *{
     margin: 0;
+    box-sizing: border-box;
+}
+p,h1,h2,h3{
+    margin: 0;
+}
+
+.hero_wrapper{
+    width: 100%;
+    height: 100vh;
+    background: url("/project/assets/images/Poster.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dim_wrapper{
+    background-color: #0000007c;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero_wrapper img{
+    width: 100%;
+    height: 100px;
+}
+
+.nav_wrapper{
+    padding-top: 28px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_wrapper .logo{
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    color: #fff;
+    gap: 24px;
+}
+
+.search_box{
+    width: 50%;
+}
+.search_box form input{
+    width: 100%;
+    height: 45px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.search_box form input::placeholder{
+    color: #fff;
+}
+
+
+
+/* card */
+.cards {
+    display: grid;
+    gap: 20px;
+    grid-auto-flow: column;
+    grid-auto-columns: 250px;
+    overflow-x: scroll;
+    padding: 5px 5px;
+}
+.cards::-webkit-scrollbar{
+    appearance: none;
+}
+
+.card_link{
+    text-decoration: none;
+    color: #000;
+}
+.card_link:hover{
+    color: #000;
+}
+.movie-card {
+    width: 250px;
+    transition: 0.1s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 5px;
+    position: relative;
+}
+.movie-card:hover{
+    background-color: #efefef;
+}
+.details{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.movie-poster {
+    width: 100%;
+    max-height: 330px;
+    object-fit: cover;
+    border-radius: 5px;
+    object-position: center;
+}
+
+.movie-title {
+    font-size: 22px;
+}
+
+.movie-rating {
+    font-size: 14px;
+    color: #888;
+}
+
+.movie-genres {
+    font-size: 14px;
+}
+.movie-popularity {
+    font-size: 14px;
+    color: #888;
+}
+
+.add_to_fav{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(243,244,246,0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movies_section h1{
+    margin: 70px 0 40px;
+    color: #000;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
