@@ -3,6 +3,14 @@ require_once "utils/fetchAPI.php";
 require_once "utils/numberFormat.php";
 require_once "constants.php";
 
+session_start();
+
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+}else{
+    header('Location: /project/pages/login.php');
+}
+
 
 $actionMovies = fetchDataFromAPI($actionApi);
 $adventureMovies = fetchDataFromAPI($adventureApi);
@@ -33,14 +41,20 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
                 <h2>MovieBox</h2>
             </div>
             <div class="nav_links">
-                <form action="">
-                    <input type="text" placeholder="Search movies...">
+                <form action="/project/pages/search.php" method="GET">
+                    <button class="search_icon" type="submit" name="submit">
+                        <img src="/project/assets/icons/search.svg" alt="">
+                    </button>
+                    <input type="text" name="movie" placeholder="Search movies...">
                 </form>
                 <a href="">My reviews</a>
                 <a href="">Watchlist</a>
                 <a href="">Favorites</a>
-                <a href="login.php">Login</a>
+                <a href="/project/pages/login.php">Login</a>
             </div>
+            <h1 class="text-white">Hi,
+                <?= $username != null ? $username : " " ?>
+            </h1>
         </nav>
     </section>
 
@@ -51,7 +65,7 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
             <?php if ($actionMovies->results): ?>
                 <?php foreach ($actionMovies->results as $movie): ?>
                     <div class="movie-card">
-                        <a class="card_link" href="movie-details.php?id=<?php echo $movie->id ?>">
+                        <a class="card_link" href="/project/pages/movie-details.php?id=<?php echo $movie->id ?>">
                             <img class="movie-poster" src="https://image.tmdb.org/t/p/w500<?php echo $movie->poster_path; ?>"
                                 alt="Movie Poster">
                             <div class="details">
@@ -90,7 +104,7 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
             <?php if ($comedyMovies->results): ?>
                 <?php foreach ($comedyMovies->results as $movie): ?>
                     <div class="movie-card">
-                        <a class="card_link" href="movie-details.php?id=<?php echo $movie->id ?>">
+                        <a class="card_link" href="/project/pages/movie-details.php?id=<?php echo $movie->id ?>">
                             <img class="movie-poster" src="https://image.tmdb.org/t/p/w500<?php echo $movie->poster_path; ?>"
                                 alt="Movie Poster">
                             <div class="details">
@@ -129,7 +143,7 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
             <?php if ($adventureMovies->results): ?>
                 <?php foreach ($adventureMovies->results as $movie): ?>
                     <div class="movie-card">
-                        <a class="card_link" href="movie-details.php?id=<?php echo $movie->id ?>">
+                        <a class="card_link" href="/project/pages/movie-details.php?id=<?php echo $movie->id ?>">
                             <img class="movie-poster" src="https://image.tmdb.org/t/p/w500<?php echo $movie->poster_path; ?>"
                                 alt="Movie Poster">
                             <div class="details">
@@ -169,8 +183,8 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
 
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

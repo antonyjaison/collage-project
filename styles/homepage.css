@@ -47,6 +47,15 @@ p,h1,h2,h3{
     gap: 24px;
 }
 
+.search_icon{
+    background-color: transparent;
+    border: none;
+}
+.search_icon img{
+    width: 16px;
+    height: 16px;
+}
+
 /* .search_box{
     width: 50%;
 }
@@ -166,9 +175,11 @@ p,h1,h2,h3{
     line-height: 24px; /* 150% */
     text-decoration: none;
 }
+.nav_links form{
+    border-bottom:  1.5px solid #fff;
+}
 .nav_links form input{
     border: none;
-    border-bottom:  1.5px solid #fff;
     background-color: transparent;
     color: #fff;
 }

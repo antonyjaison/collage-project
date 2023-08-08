@@ -44,3 +44,40 @@ line-height: 22px;
     line-height: 24px;
     text-transform: uppercase;
 }
+
+/* cast section */
+.cast-container {
+  display: grid;
+  gap: 0px;
+  grid-auto-flow: column;
+  grid-auto-columns: 250px;
+  overflow-x: scroll;
+  padding: 10px 10px;
+}
+.cast-container::-webkit-scrollbar{
+  appearance: none;
+}
+
+.cast-card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+  .cast-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+  }
+  .cast-name {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
