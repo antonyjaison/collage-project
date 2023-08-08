@@ -8,7 +8,7 @@ $actionMovies = fetchDataFromAPI($actionApi);
 $adventureMovies = fetchDataFromAPI($adventureApi);
 $comedyMovies = fetchDataFromAPI($comedyApi)
 
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +32,15 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
                 <img src="/project/assets/images/logo.svg" alt="">
                 <h2>MovieBox</h2>
             </div>
-            <div class="search_box">
+            <div class="nav_links">
                 <form action="">
-                    <input type="text" placeholder="search movies...">
+                    <input type="text" placeholder="Search movies...">
                 </form>
+                <a href="">My reviews</a>
+                <a href="">Watchlist</a>
+                <a href="">Favorites</a>
+                <a href="login.php">Login</a>
             </div>
-            <a href="/login">Login</a>
         </nav>
     </section>
 

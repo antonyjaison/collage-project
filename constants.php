@@ -10,5 +10,5 @@ $actionId = "28";
 
 $actionApi = "$BASE_URL/discover/movie?api_key=$API_KEY&with_genres=$actionId";
 $adventureApi = "$BASE_URL/discover/movie?api_key=$API_KEY&with_genres=$adventureId";
-$comedyApi = "$BASE_URL/discover/movie?api_key=$API_KEY&with_genres=$come";
+$comedyApi = "$BASE_URL/discover/movie?api_key=$API_KEY&with_genres=$comedyId";
 ?>
