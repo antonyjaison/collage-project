@@ -80,3 +80,8 @@ line-height: normal;
     padding: 10px 20px;
     cursor: pointer;
 }
+
+.error_message{
+    color: tomato;
+    font-size: 20px;
+}

@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
             <nav class="container nav_wrapper">
                 <div class="logo">
                     <img src="/project/assets/images/logo.svg" alt="">
-                    <h2>MovieBox</h2>
+                    <h2 class="display-6">MovieBox</h2>
                 </div>
             </nav>
 

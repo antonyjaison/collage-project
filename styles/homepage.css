@@ -44,7 +44,14 @@ p,h1,h2,h3{
     height: fit-content;
     align-items: center;
     color: #fff;
-    gap: 24px;
+    gap: 20px;
+}
+.nav_wrapper .logo img{
+    width: 70px;
+    object-fit: contain;
+}
+.nav_wrapper .logo h2{
+    font-size: 30px;
 }
 
 .search_icon{
@@ -169,10 +176,7 @@ p,h1,h2,h3{
 }
 .nav_links a{
     color: #FFF;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 150% */
+    font-size: 18px;
     text-decoration: none;
 }
 .nav_links form{
@@ -182,6 +186,7 @@ p,h1,h2,h3{
     border: none;
     background-color: transparent;
     color: #fff;
+    font-size: 18px;
 }
 .nav_links form input::placeholder{
     color: #fff;

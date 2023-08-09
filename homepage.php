@@ -3,10 +3,12 @@ require_once "utils/fetchAPI.php";
 require_once "utils/numberFormat.php";
 require_once "constants.php";
 
+include("./server/db/connection.php");
+
 session_start();
 
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
+if (isset($_SESSION['name'])) {
+    $name = $_SESSION['name'];
 }else{
     header('Location: /project/pages/login.php');
 }
@@ -38,22 +40,22 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
         <nav class="container nav_wrapper">
             <div class="logo">
                 <img src="/project/assets/images/logo.svg" alt="">
-                <h2>MovieBox</h2>
+                <h2 class="display-6">MovieBox</h2>
             </div>
             <div class="nav_links">
                 <form action="/project/pages/search.php" method="GET">
                     <button class="search_icon" type="submit" name="submit">
                         <img src="/project/assets/icons/search.svg" alt="">
                     </button>
-                    <input type="text" name="movie" placeholder="Search movies...">
+                    <input class="display-6" type="text" name="movie" placeholder="Search movies...">
                 </form>
-                <a href="">My reviews</a>
-                <a href="">Watchlist</a>
-                <a href="">Favorites</a>
-                <a href="/project/pages/login.php">Login</a>
+                <a class="display-6" href="">My reviews</a>
+                <a class="display-6" href="">Watchlist</a>
+                <a class="display-6" href="">Favorites</a>
+                <a class="display-6" href="/project/pages/login.php">Login</a>
             </div>
-            <h1 class="text-white">Hi,
-                <?= $username != null ? $username : " " ?>
+            <h1 class="text-white display-6">Hi,
+                <?= $name != null ? $name : " " ?>
             </h1>
         </nav>
     </section>
