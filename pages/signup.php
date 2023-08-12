@@ -8,14 +8,14 @@ if (isset($_POST["submit"])) {
     $password = $_POST['password'];
     $email = $_POST['email'];
 
-    $query = "SELECT * FROM user_details WHERE email = '$email'";
+    $query = "SELECT * FROM Users WHERE email = '$email'";
 
     $result = mysqli_query($con, $query);
 
     $count = mysqli_num_rows($result);
 
     if ($count == 0) {
-        $insertQuery = "INSERT INTO user_details VALUES(0,'$name','$email','$password');";
+        $insertQuery = "INSERT INTO Users VALUES(0,'$name','$email','$password');";
         $result = mysqli_query($con, $insertQuery);
     }
 

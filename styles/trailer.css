@@ -34,6 +34,18 @@ iframe{
 /* Add these styles to your existing CSS or a separate stylesheet */
 
 /* Style for user images */
+.comment-section{
+    border: 1px solid #969696;
+    padding: 15px;
+    border-radius: 20px;
+    width: 100%;
+    max-height: 80vh;
+    min-height: fit-content;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+        appearance: none;
+    }
+}
 .comment{
     border-bottom: 1px solid #636363;
     padding-top: 10px;

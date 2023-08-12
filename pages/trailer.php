@@ -51,38 +51,75 @@ $video = fetchDataFromAPI($videoApi)->results[0];
             <div class="col-lg-8">
                 <iframe src="http://www.youtube.com/embed/<?php echo $video->key ?>?autoplay=1" frameborder="0"
                     allowfullscreen></iframe>
-                <h1 class="display-6 video_heading">The Flash | Spaghetti Theory | Warner Bros. Entertainment</h1>
+                <h1 class="display-6 video_heading">
+                    <?php echo $video->name ?>
+                </h1>
 
             </div>
             <div class="col-lg-4">
-            <div class="comment-section">
-            <?php
-            $comments = [
-                [
-                    'user' => 'User 1',
-                    'comment' => 'This is a great movie!',
-                    'rating' => 4
-                ],
-                [
-                    'user' => 'User 2',
-                    'comment' => 'I love the storyline.',
-                    'rating' => 5
-                ],
-                // Add more comments here
-            ];
+                <div class="comment-section">
+                    <?php
+                    $comments = [
+                        [
+                            'user' => 'User 1',
+                            'comment' => 'This is a great movie!',
+                            'rating' => 4
+                        ],
+                        [
+                            'user' => 'User 2',
+                            'comment' => 'I love the storyline.',
+                            'rating' => 5
+                        ],
+                        [
+                            'user' => 'User 2',
+                            'comment' => 'I love the storyline.',
+                            'rating' => 5
+                        ],
+                        [
+                            'user' => 'User 2',
+                            'comment' => 'I love the storyline.',
+                            'rating' => 5
+                        ],
+                        [
+                            'user' => 'User 2',
+                            'comment' => 'I love the storyline.',
+                            'rating' => 5
+                        ],
+                        [
+                            'user' => 'User 2',
+                            'comment' => 'I love the storyline.',
+                            'rating' => 5
+                        ],
+                        [
+                            'user' => 'User 2',
+                            'comment' => 'I love the storyline.',
+                            'rating' => 5
+                        ],
+                        [
+                            'user' => 'User 2',
+                            'comment' => 'I love the storyline.',
+                            'rating' => 5
+                        ],
+                        [
+                            'user' => 'User 2',
+                            'comment' => 'I love the storyline.',
+                            'rating' => 5
+                        ],
+                        // Add more comments here
+                    ];
 
-            foreach ($comments as $comment) {
-                echo '<div class="comment">';
-                echo '<div class="comment-details">';
-                echo '<img class="user-image" src="/project/assets/icons/user.png" alt="User Image">';
-                echo '<span class="comment-username">' . $comment['user'] . '</span>';
-                echo '<span class="comment-rating">Rating: ' . $comment['rating'] . '</span>';
-                echo '</div>';
-                echo '<p class="comment-review">' . $comment['comment'] . '</p>';
-                echo '</div>';
-            }
-            ?>
-        </div>
+                    foreach ($comments as $comment) {
+                        echo '<div class="comment">';
+                        echo '<div class="comment-details">';
+                        echo '<img class="user-image" src="/project/assets/icons/user.png" alt="User Image">';
+                        echo '<span class="comment-username">' . $comment['user'] . '</span>';
+                        echo '<span class="comment-rating">Rating: ' . $comment['rating'] . '</span>';
+                        echo '</div>';
+                        echo '<p class="comment-review">' . $comment['comment'] . '</p>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
             </div>
 
 

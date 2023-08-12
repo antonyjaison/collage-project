@@ -6,7 +6,7 @@ if (isset($_POST["submit"])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT * FROM user_details WHERE email = '$email' AND password='$password'";
+    $query = "SELECT * FROM Users WHERE email = '$email' AND password='$password'";
 
     $result = mysqli_query($con, $query);
 
@@ -16,6 +16,7 @@ if (isset($_POST["submit"])) {
     if ($count > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $_SESSION['name'] = $row['name'];
+            $_SESSION['user_id'] = $row['user_id'];
         }
         header("Location: /project/homepage.php");
     }
