@@ -9,16 +9,18 @@ session_start();
 
 if (isset($_SESSION['name'])) {
     $name = $_SESSION['name'];
-}else{
+} else {
     header('Location: /project/pages/login.php');
 }
 
 
 $actionMovies = fetchDataFromAPI($actionApi);
 $adventureMovies = fetchDataFromAPI($adventureApi);
-$comedyMovies = fetchDataFromAPI($comedyApi)
+$comedyMovies = fetchDataFromAPI($comedyApi);
 
-    ?>
+$firstMovie = $actionMovies->results[0];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,34 +32,77 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/homepage.css">
+    <link rel="stylesheet" href="./styles/movie-details.css">
     <title>Homepage</title>
 </head>
 
 <body>
 
     <!-- hero -->
-    <section class="hero_wrapper">
-        <nav class="container nav_wrapper">
-            <div class="logo">
-                <img src="/project/assets/images/logo.svg" alt="">
-                <h2 class="display-6">MovieBox</h2>
+    <section
+        style="background:url('<?php echo $imgURL . $firstMovie->backdrop_path; ?>'); background-position: center; background-repeat: no-repeat; background-size: cover;"
+        class="hero_wrapper">
+
+
+        <div class="dim_wrapper">
+            <nav class="container nav_wrapper">
+                <div class="logo">
+                    <img src="/project/assets/images/logo.svg" alt="">
+                    <h2 class="display-6">MovieBox</h2>
+                </div>
+                <div class="nav_links">
+                    <form action="/project/pages/search.php" method="GET">
+                        <button class="search_icon" type="submit" name="submit">
+                            <img src="/project/assets/icons/search.svg" alt="">
+                        </button>
+                        <input class="display-6" type="text" name="movie" placeholder="Search movies...">
+                    </form>
+                    <a class="display-6" href="">My reviews</a>
+                    <a class="display-6" href="">Watchlist</a>
+                    <a class="display-6" href="">Favorites</a>
+                    <?php if (!$name) {
+                        echo '<a class="display-6" href="/project/pages/login.php">Login</a>';
+                    } else {
+                        echo '<a class="display-6" href="/project/server/logout.php">Logout</a>';
+                    }
+                    ?>
+                </div>
+                <h1 class="text-white display-6">Hi,
+                    <?= $name != null ? $name : " " ?>
+                </h1>
+            </nav>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 movie_details">
+                        <h1>
+                            <?php echo $firstMovie->title; ?>
+                        </h1>
+                        <div class="imdb_rating">
+                            <img src="/project/assets/images/imdb.svg" alt="imdb">
+                            <p>
+                                <?php echo $firstMovie->vote_average; ?>/10
+                            </p>
+                        </div>
+                        <p>
+                            <?php echo $firstMovie->overview; ?>
+                        </p>
+
+                        <button class="watch_trailer">
+                            Watch Trailer
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="nav_links">
-                <form action="/project/pages/search.php" method="GET">
-                    <button class="search_icon" type="submit" name="submit">
-                        <img src="/project/assets/icons/search.svg" alt="">
-                    </button>
-                    <input class="display-6" type="text" name="movie" placeholder="Search movies...">
-                </form>
-                <a class="display-6" href="">My reviews</a>
-                <a class="display-6" href="">Watchlist</a>
-                <a class="display-6" href="">Favorites</a>
-                <a class="display-6" href="/project/pages/login.php">Login</a>
-            </div>
-            <h1 class="text-white display-6">Hi,
-                <?= $name != null ? $name : " " ?>
-            </h1>
-        </nav>
+
+
+            <div></div>
+        </div>
+
+
+
+
+
     </section>
 
     <section class="container movies_section">
@@ -174,8 +219,6 @@ $comedyMovies = fetchDataFromAPI($comedyApi)
             <?php endif; ?>
         </div>
     </section>
-
-
 
     <footer>
 

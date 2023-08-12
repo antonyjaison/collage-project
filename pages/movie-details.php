@@ -72,9 +72,11 @@ if (isset($_GET['id'])) {
                             echo "Genre: " . implode(" | ", $genres);
                             ?>
                         </p>
-                        <button class="watch_trailer">
-                            Watch Trailer
-                        </button>
+                        <a href="/project/pages/trailer.php?movie_id=<?php echo $data->id?>;">
+                            <button class="watch_trailer">
+                                Watch Trailer
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
