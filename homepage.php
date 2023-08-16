@@ -50,7 +50,7 @@ $firstMovie = $actionMovies->results[0];
                 <div class="logo">
                     <img src="/project/assets/images/logo.svg" alt="">
                     <h2 class="display-6">MovieBox</h2>
-                </div>
+                </div>`
                 <div class="nav_links">
                     <form action="/project/pages/search.php" method="GET">
                         <button class="search_icon" type="submit" name="submit">
@@ -141,6 +141,9 @@ $firstMovie = $actionMovies->results[0];
             <?php else: ?>
                 <p>No data available.</p>
             <?php endif; ?>
+
+
+
         </div>
     </section>
 

@@ -1,6 +1,9 @@
 <?php
 include_once '../constants.php';
 include_once '../utils/fetchAPI.php';
+include_once '../utils/getMovieReviews.php';
+include("../server/db/connection.php");
+
 session_start();
 
 if (!isset($_GET['movie_id']) && !isset($_SESSION['name'])) {
@@ -13,6 +16,10 @@ if (!isset($_GET['movie_id']) && !isset($_SESSION['name'])) {
 $videoApi = "https://api.themoviedb.org/3/movie/$movieID/videos?language=en-US&api_key=$API_KEY";
 
 $video = fetchDataFromAPI($videoApi)->results[0];
+
+
+$reviews = getMovieReviews($con, $movieID);
+
 
 ?>
 <!DOCTYPE html>
@@ -57,69 +64,27 @@ $video = fetchDataFromAPI($videoApi)->results[0];
 
             </div>
             <div class="col-lg-4">
-                <div class="comment-section">
-                    <?php
-                    $comments = [
-                        [
-                            'user' => 'User 1',
-                            'comment' => 'This is a great movie!',
-                            'rating' => 4
-                        ],
-                        [
-                            'user' => 'User 2',
-                            'comment' => 'I love the storyline.',
-                            'rating' => 5
-                        ],
-                        [
-                            'user' => 'User 2',
-                            'comment' => 'I love the storyline.',
-                            'rating' => 5
-                        ],
-                        [
-                            'user' => 'User 2',
-                            'comment' => 'I love the storyline.',
-                            'rating' => 5
-                        ],
-                        [
-                            'user' => 'User 2',
-                            'comment' => 'I love the storyline.',
-                            'rating' => 5
-                        ],
-                        [
-                            'user' => 'User 2',
-                            'comment' => 'I love the storyline.',
-                            'rating' => 5
-                        ],
-                        [
-                            'user' => 'User 2',
-                            'comment' => 'I love the storyline.',
-                            'rating' => 5
-                        ],
-                        [
-                            'user' => 'User 2',
-                            'comment' => 'I love the storyline.',
-                            'rating' => 5
-                        ],
-                        [
-                            'user' => 'User 2',
-                            'comment' => 'I love the storyline.',
-                            'rating' => 5
-                        ],
-                        // Add more comments here
-                    ];
 
-                    foreach ($comments as $comment) {
-                        echo '<div class="comment">';
-                        echo '<div class="comment-details">';
-                        echo '<img class="user-image" src="/project/assets/icons/user.png" alt="User Image">';
-                        echo '<span class="comment-username">' . $comment['user'] . '</span>';
-                        echo '<span class="comment-rating">Rating: ' . $comment['rating'] . '</span>';
-                        echo '</div>';
-                        echo '<p class="comment-review">' . $comment['comment'] . '</p>';
-                        echo '</div>';
-                    }
-                    ?>
-                </div>
+                <?php if (empty($reviews)): ?>
+                    <p>No reviews yet</p>
+
+                <?php else: ?>
+                    <div class="comment-section">
+                        <?php
+                        foreach ($reviews as $review) {
+                            echo '<div class="comment">';
+                            echo '<div class="comment-details">';
+                            echo '<img class="user-image" src="/project/assets/icons/user.png" alt="User Image">';
+                            echo '<span class="comment-username">' . 'dsdsd' . '</span>';
+                            echo '<span class="comment-rating">Rating: ' . $review['rating'] . '</span>';
+                            echo '</div>';
+                            echo '<p class="comment-review">' . $review['review_text'] . '</p>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                <?php endif; ?>
+
             </div>
 
 
