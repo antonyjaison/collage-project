@@ -2,6 +2,7 @@
 include_once '../constants.php';
 include_once '../utils/fetchAPI.php';
 include_once '../utils/getMovieReviews.php';
+include_once '../utils/getUser.php';
 include("../server/db/connection.php");
 
 session_start();
@@ -11,6 +12,7 @@ if (!isset($_GET['movie_id']) && !isset($_SESSION['name'])) {
 } else {
     $movieID = $_GET['movie_id'];
     $name = $_SESSION['name'];
+    $userID = $_SESSION['user_id'];
 }
 
 $videoApi = "https://api.themoviedb.org/3/movie/$movieID/videos?language=en-US&api_key=$API_KEY";
@@ -19,7 +21,6 @@ $video = fetchDataFromAPI($videoApi)->results[0];
 
 
 $reviews = getMovieReviews($con, $movieID);
-
 
 ?>
 <!DOCTYPE html>
@@ -75,7 +76,7 @@ $reviews = getMovieReviews($con, $movieID);
                             echo '<div class="comment">';
                             echo '<div class="comment-details">';
                             echo '<img class="user-image" src="/project/assets/icons/user.png" alt="User Image">';
-                            echo '<span class="comment-username">' . 'dsdsd' . '</span>';
+                            echo '<span class="comment-username">' . getUser($con, $review['user_id']) . '</span>';
                             echo '<span class="comment-rating">Rating: ' . $review['rating'] . '</span>';
                             echo '</div>';
                             echo '<p class="comment-review">' . $review['review_text'] . '</p>';

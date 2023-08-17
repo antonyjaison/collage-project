@@ -3,6 +3,7 @@ require_once "utils/fetchAPI.php";
 require_once "utils/numberFormat.php";
 require_once "constants.php";
 require_once "utils/checkInFavorites.php";
+require_once "utils/checkInWatchlist.php";
 
 include("./server/db/connection.php");
 
@@ -10,6 +11,7 @@ session_start();
 
 if (isset($_SESSION['name'])) {
     $name = $_SESSION['name'];
+    $userID = $_SESSION['user_id'];
 } else {
     header('Location: /project/pages/login.php');
 }
@@ -132,9 +134,14 @@ $firstMovie = $actionMovies->results[0];
                                 </p>
                             </div>
                         </a>
-                        <a class="add_to_fav"
-                            href="/project/server/add-to-favorites.php?movie_id=<?php echo $movie->id ?>">
-                            <img src="<?php echo checkIfInFavorites($con, $movie->id) ? '/project/assets/icons/heart_red.svg' : '/project/assets/icons/heart_gray.svg'; ?>" alt="">
+                        <a class="add_to_fav" href="/project/server/add-to-favorites.php?movie_id=<?php echo $movie->id ?>">
+                            <img src="<?php echo checkIfInFavorites($con, $movie->id) ? '/project/assets/icons/heart_red.svg' : '/project/assets/icons/heart_gray.svg'; ?>"
+                                alt="">
+                        </a>
+                        <a style="right:50px" class="add_to_fav"
+                            href="/project/server/add-to-watchlist.php?movie_id=<?php echo $movie->id ?>">
+                            <img src="<?php echo checkInWatchlist($con, $movie->id, $userID) ? '/project/assets/icons/tick.svg' : '/project/assets/icons/plus.svg'; ?>"
+                                alt="">
                         </a>
                     </div>
                 <?php endforeach; ?>
@@ -175,9 +182,14 @@ $firstMovie = $actionMovies->results[0];
                                 </p>
                             </div>
                         </a>
-                        <a class="add_to_fav"
-                            href="/project/server/add-to-favorites.php?movie_id=<?php echo $movie->id ?>">
-                            <img src="<?php echo checkIfInFavorites($con, $movie->id) ? '/project/assets/icons/heart_red.svg' : '/project/assets/icons/heart_gray.svg'; ?>" alt="">
+                        <a class="add_to_fav" href="/project/server/add-to-favorites.php?movie_id=<?php echo $movie->id ?>">
+                            <img src="<?php echo checkIfInFavorites($con, $movie->id) ? '/project/assets/icons/heart_red.svg' : '/project/assets/icons/heart_gray.svg'; ?>"
+                                alt="">
+                        </a>
+                        <a style="right:50px" class="add_to_fav"
+                            href="/project/server/add-to-watchlist.php?movie_id=<?php echo $movie->id ?>">
+                            <img src="<?php echo checkInWatchlist($con, $movie->id, $userID) ? '/project/assets/icons/tick.svg' : '/project/assets/icons/plus.svg'; ?>"
+                                alt="">
                         </a>
                     </div>
                 <?php endforeach; ?>
@@ -215,9 +227,14 @@ $firstMovie = $actionMovies->results[0];
                                 </p>
                             </div>
                         </a>
-                        <a class="add_to_fav"
-                            href="/project/server/add-to-favorites.php?movie_id=<?php echo $movie->id ?>">
-                            <img src="<?php echo checkIfInFavorites($con, $movie->id) ? '/project/assets/icons/heart_red.svg' : '/project/assets/icons/heart_gray.svg'; ?>" alt="">
+                        <a class="add_to_fav" href="/project/server/add-to-favorites.php?movie_id=<?php echo $movie->id ?>">
+                            <img src="<?php echo checkIfInFavorites($con, $movie->id) ? '/project/assets/icons/heart_red.svg' : '/project/assets/icons/heart_gray.svg'; ?>"
+                                alt="">
+                        </a>
+                        <a style="right:50px" class="add_to_fav"
+                            href="/project/server/add-to-watchlist.php?movie_id=<?php echo $movie->id ?>">
+                            <img src="<?php echo checkInWatchlist($con, $movie->id, $userID) ? '/project/assets/icons/tick.svg' : '/project/assets/icons/plus.svg'; ?>"
+                                alt="">
                         </a>
 
                     </div>

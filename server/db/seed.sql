@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS Reviews (
     movie_id INT,
     rating INT,
     review_text TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- New timestamp column
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
