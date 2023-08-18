@@ -9,8 +9,8 @@ if (!isset($_SESSION['user_id']) && !isset($_GET['movie_id'])) {
     $movie_id = $_GET['movie_id'];
 
 
-    $checkQuery = "SELECT favorite_id FROM Favorites WHERE user_id = '$user_id' AND movie_id = '$movie_id'";
-    $insertQuery = "INSERT INTO Favorites VALUES(0,'$user_id','$movie_id');";
+    $checkQuery = "SELECT * FROM Favorites WHERE user_id = '$user_id' AND movie_id = '$movie_id'";
+    $insertQuery = "INSERT INTO Favorites VALUES('$user_id','$movie_id');";
     $deleteQuery = "DELETE FROM Favorites WHERE user_id = '$user_id' AND movie_id = '$movie_id'";
 
     $result = mysqli_query($con, $checkQuery);

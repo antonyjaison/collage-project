@@ -8,8 +8,8 @@ if (!isset($_SESSION['user_id']) && !isset($_GET['movie_id'])) {
     $user_id = $_SESSION['user_id'];
     $movie_id = $_GET['movie_id'];
 
-    $checkQuery = "SELECT watchlist_id FROM Watchlist WHERE user_id = '$user_id' AND movie_id = '$movie_id'";
-    $insertQuery = "INSERT INTO Watchlist VALUES(0,'$user_id','$movie_id');";
+    $checkQuery = "SELECT * FROM Watchlist WHERE user_id = '$user_id' AND movie_id = '$movie_id'";
+    $insertQuery = "INSERT INTO Watchlist VALUES('$user_id','$movie_id');";
     $deleteQuery = "DELETE FROM Watchlist WHERE user_id = '$user_id' AND movie_id = '$movie_id'";
 
     $result = mysqli_query($con, $checkQuery);

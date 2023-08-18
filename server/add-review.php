@@ -11,9 +11,8 @@ if (!isset($_SESSION['user_id'])) {
     $rating = $_POST['rating'];
     $movieId = $_POST['movieId'];
 
-    // $insertQuery = "INSERT INTO Reviews VALUES(0,'$user_id','$movieId','$rating','$review')";
 
-    $insertQuery = "INSERT INTO Reviews VALUES (0,'$user_id', '$movieId', '$rating', '$review', CURRENT_TIMESTAMP)";
+    $insertQuery = "INSERT INTO Reviews VALUES ('$user_id', '$movieId', '$rating', '$review', CURRENT_TIMESTAMP)";
 
 
     $insertResult = mysqli_query($con, $insertQuery);

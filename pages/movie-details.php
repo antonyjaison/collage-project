@@ -62,8 +62,10 @@ if (isset($_GET['id'])) {
         <div class="dim_wrapper">
             <nav class="container nav_wrapper">
                 <div class="logo">
-                    <img src="/project/assets/images/logo.svg" alt="">
-                    <h2 class="display-6">MovieBox</h2>
+                    <a style="text-decoration:none;" class="logo" href="/project/homepage.php">
+                        <img src="/project/assets/images/logo.svg" alt="">
+                        <h2 class="display-6">MovieBox</h2>
+                    </a>
                 </div>
             </nav>
 

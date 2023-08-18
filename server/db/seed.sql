@@ -10,14 +10,12 @@ CREATE TABLE IF NOT EXISTS Users (
 );
 
 CREATE TABLE IF NOT EXISTS Favorites (
-    favorite_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     movie_id INT,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
 CREATE TABLE IF NOT EXISTS Reviews (
-    review_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     movie_id INT,
     rating INT,
@@ -27,7 +25,6 @@ CREATE TABLE IF NOT EXISTS Reviews (
 );
 
 CREATE TABLE IF NOT EXISTS Watchlist (
-    watchlist_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     movie_id INT,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
